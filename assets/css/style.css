@@ -183,7 +183,7 @@ font-size: 0.5rem;
 
 /* Logo Styles */
 .logo {
-  flex: 0 0 30%;
+  flex: 0 0 20%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
