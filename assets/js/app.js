@@ -74,3 +74,74 @@ scrollBtn.addEventListener("click", () => {
     scrollBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
   }, 1000);
 });
+
+function showLoginModal() {
+  document.getElementById("loginModal").classList.add("show");
+}
+
+function hideLoginModal() {
+  document.getElementById("loginModal").classList.remove("show");
+}
+
+function handleLogin(event) {
+  event.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  localStorage.setItem("userName", username);
+  window.location.href = "index.html";
+}
+
+
+// login code
+function handleLogin(event) {
+  event.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  if (username === "darlculus" && password === "Coldwizkid1#") {
+    localStorage.setItem("userName", username);
+    window.location.href = "home.html";
+  } else {
+    alert("Invalid credentials. Please try again.");
+  }
+}
+
+
+
+
+// for the modal form
+
+document.addEventListener("DOMContentLoaded", function () {
+  const loginBtn = document.querySelector(".login-btn");
+  const registerBtn = document.querySelector(".register-btn");
+
+  loginBtn.addEventListener("click", showLoginModal);
+  registerBtn.addEventListener("click", showLoginModal);
+
+  // Close modal when clicking outside
+  document.getElementById("loginModal").addEventListener("click", function (e) {
+    if (e.target === this) {
+      hideLoginModal();
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const closeBtn = document.querySelector(".close-btn");
+  const togglePassword = document.querySelector("#togglePassword");
+  const passwordInput = document.querySelector("#password");
+
+  closeBtn.addEventListener("click", hideLoginModal);
+
+  togglePassword.addEventListener("click", function () {
+    const type =
+      passwordInput.getAttribute("type") === "password" ? "text" : "password";
+    passwordInput.setAttribute("type", type);
+
+    // Toggle eye icon
+    this.classList.toggle("fa-eye");
+    this.classList.toggle("fa-eye-slash");
+  });
+});
+
+
