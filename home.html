@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CarsLegit - Your Car Papers Hub</title>
+    <link rel="stylesheet" href="assets/css/dashstyle.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="date-display" id="currentDate">
+        <span class="day">27</span>
+        <div class="month-year">
+          <span>Jan.,</span>
+          <span>2025</span>
+        </div>
+      </div>
+      <div class="logo">
+        <div class="logo-circle">
+          <a><img src="https://placehold.co/100" alt="CarsLegit Logo" /></a>
+        </div>
+        <span>CarsLegit</span>
+      </div>
+      <div class="nav-items">
+        <a href="#home">Home</a>
+        <div class="dropdown">
+          <a href="#services" class="dropdown-trigger"
+            >Services<i class="fas fas fa-chevron-down"></i>
+          </a>
+          <div class="dropdown-content">
+            <a href="#vehicle-registration">Vehicle Registration</a>
+            <a href="#document-renewal">Document Renewal</a>
+            <a href="#ownership-transfer">Ownership Transfer</a>
+            <a href="#documentation">Documentation Services</a>
+            <a href="#drivers-license">Driver's License</a>
+            <a href="#accessories">Vehicle Accessories</a>
+          </div>
+        </div>
+        <a href="#contact">Contact</a>
+        <a href="#">Track Application</a>
+        <div class="dropdown">
+          <a href="#" class="dropdown-trigger">Hello! Darlculus<i class="fas fa-chevron-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#vehicle-registration">My Profile</a>
+            <a href="#document-renewal">Add Vehicle</a>
+            <a href="#ownership-transfer">My Orders</a>
+            <a href="#documentation">Change Password</a>
+            <a href="#drivers-license">Log Out</a>
+          </div>
+        </div>
+      </div>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+    <!-- nav section ends -->
+     <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Dashboard Menu</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">Overview</a></li>
+                <li><a href="#">Add Vehicle</a></li>
+                <li><a href="#">Reports</a></li>
+                <li><a href="#">Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-header">
+                <h1>Dashboard Overview</h1>
+            </div>
+            <div class="quick-actions">
+                <button class="action-btn"><i class="fas fa-plus"></i> New Vehicle</button>
+                <button class="action-btn"><i class="fas fa-file"></i> New Application</button>
+                <button class="action-btn"><i class="fas fa-clock"></i> Renewal Reminder</button>
+            </div>
+            <div class="content-grid">
+                <div class="card">
+                    <h3>Vehicles</h3>
+                    <p class="number">2</p>
+                </div>
+                <div class="card">
+                    <h3>Applications</h3>
+                    <p class="number">0</p>
+                </div>
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p class="number">0</p>
+                </div>
+                <div class="card">
+                    <h3>Products</h3>
+                    <p class="number">456</p>
+                </div>
+            </div>
+
+            <div class="dashboard-secondary-grid">
+        <!-- Left Column -->
+        <div class="dashboard-column">
+            <div class="vehicle-status">
+    <h3>Your Vehicles</h3>
+    <div class="vehicles-container">
+        <div class="vehicle-card">
+            <i class="fas fa-car vehicle-icon"></i>
+            <div class="vehicle-info">
+                <h4>Toyota Camry 2020</h4>
+                <p class="status active">Registration Active</p>
+                <p class="expiry">Expires in 245 days</p>
+            </div>
+        </div>
+        
+        <div class="vehicle-card">
+            <i class="fas fa-truck vehicle-icon"></i>
+            <div class="vehicle-info">
+                <h4>Ford F-150 2022</h4>
+                <p class="status pending">Renewal Needed</p>
+                <p class="expiry">Expires in 15 days</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+            <div class="activities-timeline">
+                <h3>Recent Activities</h3>
+                <div class="timeline-item">
+                    <span class="time">2 hours ago</span>
+                    <p>Vehicle registration completed for Toyota Camry</p>
+                </div>
+                <div class="timeline-item">
+                    <span class="time">Yesterday</span>
+                    <p>License renewal application submitted</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="dashboard-column">
+            <div class="renewal-alerts">
+                <h3>Upcoming Renewals</h3>
+                <div class="alert-item urgent">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Driver's License expires in 30 days</span>
+                    <button>Renew Now</button>
+                </div>
+            </div>
+
+            <section class="faq-section" id="faq">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How can I track my application status</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Every application receives a unique tracking number. Simply log into
+                            your CarLegit dashboard to check real-time updates on your
+                            application status.
+                        </p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long does vehicle registration take?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            With CarLegit, new vehicle registration typically takes 24-48 hours
+                            to process. Our digital system streamlines the entire process,
+                            making it significantly faster than traditional methods.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What documents do I need for ownership transfer</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                         <p>
+                            You'll need the original vehicle title, valid ID, proof of
+                            insurance, and completed transfer forms. Our system will guide you
+                            through each required document and help you prepare everything
+                            correctly.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I renew my driver's license online?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>
+                            Yes! Driver's license renewal can be completed entirely online
+                            through our platform. The process is secure, quick, and you'll
+                            receive step-by-step guidance throughout.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <!-- Add this right after your dashboard-container -->
+<div class="modal" id="newVehicleModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Add New Vehicle</h2>
+            <button class="close-modal"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="modal-body">
+            <div class="vehicle-type-selector">
+                <div class="type-option active" data-type="car">
+                    <i class="fas fa-car"></i>
+                    <span>Car</span>
+                </div>
+                <div class="type-option" data-type="truck">
+                    <i class="fas fa-truck"></i>
+                    <span>Truck</span>
+                </div>
+                <div class="type-option" data-type="motorcycle">
+                    <i class="fas fa-motorcycle"></i>
+                    <span>Motorcycle</span>
+                </div>
+            </div>
+
+            <form class="vehicle-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Vehicle Make</label>
+                        <input type="text" placeholder="e.g., Toyota">
+                    </div>
+                    <div class="form-group">
+                        <label>Vehicle Model</label>
+                        <input type="text" placeholder="e.g., Camry">
+                    </div>
+                    <div class="form-group">
+                        <label>Year</label>
+                        <input type="number" placeholder="e.g., 2023">
+                    </div>
+                    <div class="form-group">
+                        <label>License Plate</label>
+                        <input type="text" placeholder="Enter plate number">
+                    </div>
+                    <div class="form-group">
+                        <label>VIN Number</label>
+                        <input type="text" placeholder="Vehicle Identification Number">
+                    </div>
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="text" placeholder="Vehicle color">
+                    </div>
+                </div>
+
+                <div class="document-upload">
+                    <h3>Required Documents</h3>
+                    <div class="upload-grid">
+                        <div class="upload-box">
+                            <i class="fas fa-upload"></i>
+                            <span>Proof of Ownership</span>
+                            <input type="file" hidden>
+                        </div>
+                        <div class="upload-box">
+                            <i class="fas fa-upload"></i>
+                            <span>Insurance Document</span>
+                            <input type="file" hidden>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Vehicle</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    
+     <!-- Footer section begins -->
+  <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <div class="footer-logo">
+                <div class="logo-circle">
+                    <img src="https://placehold.co/100" alt="CarLegit Logo">
+                </div>
+                <h3>CarLegit</h3>
+            </div>
+            <p>Your trusted partner in vehicle documentation</p>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#registration">Vehicle Registration</a></li>
+                <li><a href="#renewal">Document Renewal</a></li>
+                <li><a href="#transfer">Ownership Transfer</a></li>
+                <li><a href="#license">Driver's License</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h4>Contact Us</h4>
+            <ul>
+                <li><i class="fas fa-phone"></i> +234 123 456 7890</li>
+                <li><i class="fas fa-envelope"></i> info@carlegit.com</li>
+                <li><i class="fas fa-map-marker-alt"></i> Lagos, Nigeria</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2025 CarsLegit. All rights reserved.</p>
+    </div>
+
+    <button id="scrollToTop" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</footer>
+<!-- Footer section ends -->
+
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>
+
+
