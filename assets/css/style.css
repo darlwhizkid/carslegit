@@ -800,3 +800,8 @@ letter-spacing: -0.5px;
 .password-container i:hover {
     color: #007bff;
 }
+
+#loginForm .button3 {
+    position: relative;
+    width: 100%;
+}

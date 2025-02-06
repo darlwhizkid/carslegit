@@ -75,6 +75,9 @@ scrollBtn.addEventListener("click", () => {
   }, 1000);
 });
 
+
+// For the modal functionality
+
 function showLoginModal() {
   document.getElementById("loginModal").classList.add("show");
 }
@@ -83,16 +86,7 @@ function hideLoginModal() {
   document.getElementById("loginModal").classList.remove("show");
 }
 
-function handleLogin(event) {
-  event.preventDefault();
-  const username = document.getElementById("username").value;
-  const password = document.getElementById("password").value;
-  localStorage.setItem("userName", username);
-  window.location.href = "index.html";
-}
-
-
-// login code
+// Login form handling
 function handleLogin(event) {
   event.preventDefault();
   const username = document.getElementById("username").value;
@@ -106,42 +100,78 @@ function handleLogin(event) {
   }
 }
 
-
-
-
-// for the modal form
-
+// Modal form handling
 document.addEventListener("DOMContentLoaded", function () {
   const loginBtn = document.querySelector(".login-btn");
   const registerBtn = document.querySelector(".register-btn");
-
-  loginBtn.addEventListener("click", showLoginModal);
-  registerBtn.addEventListener("click", showLoginModal);
-
-  // Close modal when clicking outside
-  document.getElementById("loginModal").addEventListener("click", function (e) {
-    if (e.target === this) {
-      hideLoginModal();
-    }
-  });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
   const closeBtn = document.querySelector(".close-btn");
   const togglePassword = document.querySelector("#togglePassword");
   const passwordInput = document.querySelector("#password");
+  const signUpBtn = document.querySelector(".button2");
+  console.log("Found button:", signUpBtn);
+  const backToLoginBtn = document.querySelector("#backToLogin");
+  console.log("Found back button:", backToLoginBtn);
+  const forgotPasswordBtn = document.querySelector(".button3");
 
-  closeBtn.addEventListener("click", hideLoginModal);
+  loginBtn?.addEventListener("click", showLoginModal);
+  registerBtn?.addEventListener("click", showLoginModal);
+  closeBtn?.addEventListener("click", hideLoginModal);
+  signUpBtn.addEventListener("click", function () {
+    console.log("Button clicked");
+    document.getElementById("loginForm").style.display = "none";
+    document.getElementById("signupForm").style.display = "block";
+  });
+   backToLoginBtn.addEventListener("click", function () {
+     document.getElementById("signupForm").style.display = "none";
+     document.getElementById("loginForm").style.display = "block";
+   });
+   forgotPasswordBtn.addEventListener("click", function () {
+     document.getElementById("loginForm").style.display = "none";
+     document.getElementById("forgotPasswordForm").style.display = "block";
+   });
+   document
+     .getElementById("backToLoginFromReset")
+     .addEventListener("click", function () {
+       document.getElementById("forgotPasswordForm").style.display = "none";
+       document.getElementById("loginForm").style.display = "block";
+     });
 
-  togglePassword.addEventListener("click", function () {
+  // Close modal when clicking outside
+  document
+    .getElementById("loginModal")
+    ?.addEventListener("click", function (e) {
+      if (e.target === this) {
+        hideLoginModal();
+      }
+    });
+
+  // Toggle password visibility
+  togglePassword?.addEventListener("click", function () {
     const type =
       passwordInput.getAttribute("type") === "password" ? "text" : "password";
     passwordInput.setAttribute("type", type);
-
-    // Toggle eye icon
     this.classList.toggle("fa-eye");
     this.classList.toggle("fa-eye-slash");
   });
 });
 
+// Form switching
+document.querySelector(".button2")?.addEventListener("click", function () {
+  console.log("Button clicked");
+  document.getElementById("loginForm").style.display = "none";
+  document.getElementById("signupForm").style.display = "block";
+});
 
+document.getElementById("backToLogin").addEventListener("click", function () {
+  document.getElementById("signupForm").style.display = "none";
+  document.getElementById("loginForm").style.display = "block";
+});
+
+// Signup handling
+function handleSignup(event) {
+  event.preventDefault();
+  const username = document.getElementById("newUsername").value;
+  const password = document.getElementById("newPassword").value;
+  console.log("Signup:", { username, password });
+  // Add your signup logic here
+}
