@@ -18,17 +18,60 @@ router.post("/register", async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
+    // Create verification token
+    const verificationToken = jwt.sign(
+      { email: email },
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+
     // Create new user
     const user = new User({
       username,
       email,
       password: hashedPassword,
+      verificationToken,
+      isVerified: false
     });
 
     await user.save();
-    res.status(201).json({ message: "User created successfully" });
+
+    // Send verification email
+    await sendVerificationEmail(email, verificationToken);
+
+    res.status(201).json({ message: "User created successfully. Please check your email to verify your account." });
   } catch (error) {
     res.status(500).json({ message: error.message });
+  }
+});
+
+// Add email verification logic
+const sendVerificationEmail = async (email, verificationToken) => {
+  // We'll implement email sending here
+};
+
+router.get("/verify/:token", async (req, res) => {
+  try {
+    const token = req.params.token;
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    const user = await User.findOne({ email: decoded.email });
+    
+    if (!user) {
+      return res.status(400).json({ message: "Invalid verification token" });
+    }
+    
+    if (user.isVerified) {
+      return res.status(400).json({ message: "Email already verified" });
+    }
+    
+    user.isVerified = true;
+    user.verificationToken = undefined;
+    await user.save();
+    
+    res.status(200).json({ message: "Email verified successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Email verification failed" });
   }
 });
 
