@@ -1,7 +1,9 @@
 document.getElementById('signupForm').addEventListener('submit', async (event) => {
   event.preventDefault();
+  console.log('Form submitted');
   
   try {
+    console.log('Sending request to:', '/api/auth/register');
     const response = await fetch('/api/auth/register', {
       method: 'POST',
       headers: {
@@ -14,11 +16,12 @@ document.getElementById('signupForm').addEventListener('submit', async (event) =
       })
     });
 
+    console.log('Response:', response);
     const data = await response.json();
+    console.log('Data:', data);
     
     if (response.ok) {
       alert('Please check your email for verification link');
-      // Close modal
       document.querySelector('.modal').style.display = 'none';
     } else {
       alert(data.message);
