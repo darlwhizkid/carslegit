@@ -170,8 +170,35 @@ document.getElementById("backToLogin").addEventListener("click", function () {
 // Signup handling
 function handleSignup(event) {
   event.preventDefault();
-  const username = document.getElementById("newUsername").value;
-  const password = document.getElementById("newPassword").value;
-  console.log("Signup:", { username, password });
-  // Add your signup logic here
+  
+  // Get the form values using your existing IDs
+  const userData = {
+    username: document.getElementById('username').value,
+    email: document.getElementById('email').value,
+    password: document.getElementById('password').value
+  };
+
+  // Send to your Render backend
+  fetch('https://carslegit.onrender.com/api/auth/register', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData)
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('Registration successful! Please check your email for verification.');
+      // Close the modal
+      const modal = document.querySelector('.modal');
+      modal.style.display = 'none';
+    } else {
+      alert(data.message);
+    }
+  })
+  .catch(error => {
+    console.error('Registration error:', error);
+    alert('Registration failed. Please try again.');
+  });
 }
