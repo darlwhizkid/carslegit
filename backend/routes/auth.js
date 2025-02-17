@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 const { sendVerificationEmail } = require('../config/email');
+const auth = require('../middleware/auth.middleware');
 
 const sgMail = require('@sendgrid/mail');
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -179,6 +180,8 @@ router.post('/reset-password', async (req, res) => {
     res.status(400).json({ success: false, message: 'Invalid reset token' });
   }
 });
+
+
 router.get('/profile', auth, async (req, res) => {
   const user = await User.findById(req.user.userId).select('-password');
   res.json(user);
@@ -188,4 +191,4 @@ router.put('/profile', auth, async (req, res) => {
   // Update profile logic
 });
 
-const auth = require('../middleware/auth.middleware');
+
