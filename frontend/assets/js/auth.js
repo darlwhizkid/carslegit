@@ -1,3 +1,5 @@
+const API_URL = 'https://carslegit.onrender.com';
+
 async function handleSignup(event) {
   event.preventDefault();
 
@@ -16,33 +18,32 @@ async function handleSignup(event) {
       return;
   }
 
+  const formData = {
+      email,
+      password,
+      fullName,
+      phone,
+      state,
+      referral
+  };
+
   try {
-      const response = await fetch(`${process.env.FRONTEND_URL}/api/auth/register`, {
+      const response = await fetch('https://carslegit.onrender.com/api/auth/register', {
           method: 'POST',
           headers: {
-              'Content-Type': 'application/json',
+              'Content-Type': 'application/json'
           },
-          body: JSON.stringify({
-              email,
-              password,
-              fullName,
-              phone,
-              state,
-              referral
-          }),
+          credentials: 'include',
+          body: JSON.stringify(formData)
       });
-
+      
       const data = await response.json();
-
       if (response.ok) {
-          alert('Registration successful! Please check your email for verification.');
-          // Switch back to login form
-          document.getElementById('loginForm').style.display = 'block';
-          document.getElementById('signupForm').style.display = 'none';
+          window.location.href = '/login.html';
       } else {
-          alert(data.message);
+          throw new Error(data.message || 'Registration failed');
       }
   } catch (error) {
-      alert('An error occurred during registration. Please try again.');
+      console.error('Registration error:', error);
   }
 }
