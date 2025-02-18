@@ -9,7 +9,12 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(cors({
-    origin: ['https://carslegit.vercel.app', 'http://localhost:3000', 'http://127.0.0.1:5500'],
+    origin: [
+        'https://carslegit.vercel.app',
+        'http://localhost:3000',
+        'http://127.0.0.1:5500',
+        'https://carslegit.onrender.com'
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
     exposedHeaders: ['Authorization'],
@@ -17,7 +22,6 @@ app.use(cors({
     preflightContinue: false,
     optionsSuccessStatus: 204
 }));
-
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
