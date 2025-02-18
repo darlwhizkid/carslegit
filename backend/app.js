@@ -6,29 +6,24 @@ const cors = require('cors');
 
 const app = express();
 
-// Middleware
-app.use(express.json());
+// CORS configuration before any routes
 app.use(cors({
-    origin: [
-        'https://carslegit.vercel.app',
-        'http://localhost:3000',
-        'http://127.0.0.1:5500',
-        'https://carslegit.onrender.com'
-    ],
+    origin: 'https://carslegit.vercel.app',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
-    exposedHeaders: ['Authorization'],
-    credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204
+    credentials: true
 }));
+
+// Body parser middleware
+app.use(express.json());
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-    res.status(200).json({ status: 'ok' });
+// Test endpoint
+app.get('/test', (req, res) => {
+    res.json({ message: 'Backend is working' });
 });
 
 module.exports = app;
